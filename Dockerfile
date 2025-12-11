@@ -15,6 +15,16 @@ COPY requirements.txt .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy dbt project
+COPY dbt/ ./dbt/
+
+# Copy scripts
+COPY scripts/ ./scripts/
+
+# Install dbt packages
+WORKDIR /app/dbt
+RUN dbt deps || true
+
 # Set working directory back to app root
 WORKDIR /app
 

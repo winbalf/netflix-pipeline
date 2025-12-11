@@ -9,6 +9,12 @@ venv/
 ENV/
 .venv
 
+# dbt
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+*.log
+
 # Data
 data/
 *.csv

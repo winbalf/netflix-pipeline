@@ -1,0 +1,26 @@
+netflix_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: YOUR_POSTGRES_HOST
+      user: YOUR_POSTGRES_USER
+      password: YOUR_POSTGRES_PASSWORD
+      port: 5432
+      dbname: netflix_analytics
+      schema: dev
+      threads: 4
+      keepalives_idle: 0
+    
+    prod:
+      type: postgres
+      host: YOUR_POSTGRES_HOST
+      user: YOUR_POSTGRES_USER
+      password: YOUR_POSTGRES_PASSWORD
+      port: 5432
+      dbname: netflix_analytics
+      schema: prod
+      threads: 8
+      keepalives_idle: 0
+
+

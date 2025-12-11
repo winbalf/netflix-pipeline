@@ -1,0 +1,60 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw data from S3 loaded into Postgres"
+    database: netflix_analytics
+    schema: raw
+    tables:
+      - name: netflix_titles
+        description: "Raw Netflix titles dataset"
+        columns:
+          - name: show_id
+            description: "Unique identifier for the show/movie"
+            tests:
+              - unique
+              - not_null
+          - name: title
+            description: "Title of the show/movie"
+            tests:
+              - not_null
+          - name: type
+            description: "Type of content (Movie or TV Show)"
+          - name: release_year
+            description: "Year the content was released"
+      
+      - name: netflix_ratings
+        description: "User ratings for Netflix content"
+        columns:
+          - name: rating_id
+            description: "Unique identifier for the rating"
+            tests:
+              - unique
+              - not_null
+          - name: user_id
+            description: "User identifier"
+            tests:
+              - not_null
+          - name: title_id
+            description: "Reference to the title"
+            tests:
+              - not_null
+      
+      - name: netflix_viewing_history
+        description: "User viewing history data"
+        columns:
+          - name: viewing_id
+            description: "Unique identifier for the viewing record"
+            tests:
+              - unique
+              - not_null
+          - name: user_id
+            description: "User identifier"
+            tests:
+              - not_null
+          - name: title_id
+            description: "Reference to the title"
+            tests:
+              - not_null
+
+

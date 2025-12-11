@@ -11,6 +11,16 @@ ENV/
 pip-log.txt
 pip-delete-this-directory.txt
 
+# dbt
+target/
+dbt_packages/
+logs/
+*.log
+
+# Profiles
+profiles.yml
+*.prof
+
 # IDE
 .vscode/
 .idea/
